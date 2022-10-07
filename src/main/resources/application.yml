@@ -1,1 +1,31 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          oauth2-client-credentials:
+            client-id: trakti-client
+            client-secret: d1RoSNWeX3hH0KNbZe1JTBDvr8LdBrGt
+            scope:
+              - openid
+              - profile
+              - roles
+            authorization-grant-type: password
+            provider: keycloak
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8888/auth/realms/trakti
+            token-uri: http://localhost:8888/auth/realms/trakti/protocol/openid-connect/token
 
+  main:
+    allow-circular-references: true
+
+keycloak:
+  realm: trakti
+  resource: trakti-client
+  auth-server-url: http://localhost:8888/auth
+  ssl-required: external
+  public-client: true
+keycloakclient:
+  logout-url: http://localhost:8888/auth/realms/trakti/protocol/openid-connect/logout
+  introspect-url: http://localhost:8888/auth/realms/trakti/protocol/openid-connect/token/introspect
