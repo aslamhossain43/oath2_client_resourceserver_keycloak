@@ -10,6 +10,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
 import org.springframework.security.core.session.SessionRegistryImpl;
@@ -22,6 +23,7 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
  */
 @Order(2)
 @KeycloakConfiguration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class KeycloakClientConfig extends KeycloakWebSecurityConfigurerAdapter {
 
     @Autowired

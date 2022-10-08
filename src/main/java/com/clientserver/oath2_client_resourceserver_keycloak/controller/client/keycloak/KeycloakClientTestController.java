@@ -21,9 +21,8 @@ import java.util.Collection;
 @RequestMapping("/keycloak-client-test")
 @PreAuthorize("isAuthenticated()")
 public class KeycloakClientTestController {
-
     @GetMapping("/greet")
-    @PreAuthorize("hasAuthority('read')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> getGreeting() throws JsonProcessingException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String authenticationName = authentication.getName();
@@ -33,4 +32,5 @@ public class KeycloakClientTestController {
         return ResponseEntity.ok("User id: " + authenticationName + ", Roles: " + roles);
 
     }
+
 }
