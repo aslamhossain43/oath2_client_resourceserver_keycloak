@@ -29,3 +29,7 @@ keycloak:
 keycloakclient:
   logout-url: http://localhost:8888/auth/realms/trakti/protocol/openid-connect/logout
   introspect-url: http://localhost:8888/auth/realms/trakti/protocol/openid-connect/token/introspect
+
+logging:
+  level:
+    org.springframework.web: DEBUG

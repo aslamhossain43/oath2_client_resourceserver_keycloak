@@ -2,6 +2,7 @@ package com.clientserver.oath2_client_resourceserver_keycloak.util.client.keyclo
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -25,4 +26,6 @@ public class KeycloakConfigProperty {
     private String clientSecret;
     @Value("${spring.security.oauth2.client.registration.oauth2-client-credentials.authorization-grant-type}")
     private String grantType;
+    @Value("${keycloak.configurationFile:WEB-INF/keycloak.json}")
+    private Resource keycloakConfigFileResource;
 }

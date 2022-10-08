@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date Oct 07, 2022
  */
 @RestController
-@RequestMapping("keycloak-client")
+@RequestMapping("/keycloak-client")
 public class KeycloakClientController {
     private final KeycloakClientService keycloakClientService;
 
@@ -25,17 +25,17 @@ public class KeycloakClientController {
         this.keycloakClientService = keycloakClientService;
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public ResponseEntity<KeycloakLoginResponse> login(@RequestBody KeycloakLoginRequest keycloakLoginRequest) {
         return keycloakClientService.login(keycloakLoginRequest);
     }
 
-    @PostMapping("logout")
+    @PostMapping("/logout")
     public ResponseEntity<LogoutResponse> logout(@RequestBody KeycloakTokenRequest keycloakTokenRequest) {
         return keycloakClientService.logout(keycloakTokenRequest);
     }
 
-    @PostMapping("introspect")
+    @PostMapping("/introspect")
     public ResponseEntity<KeycloakIntrospectResponse> introspect(@RequestBody KeycloakTokenRequest keycloakTokenRequest) {
         return keycloakClientService.introspect(keycloakTokenRequest);
     }
