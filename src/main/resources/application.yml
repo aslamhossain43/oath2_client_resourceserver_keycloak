@@ -36,6 +36,34 @@ logging:
 
 #Actuator
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
   endpoint:
     health:
       show-details: when_authorized
+    beans:
+      enabled: true
+    caches:
+      enabled: true
+    info:
+      enabled: true
+    conditions:
+      enabled: true
+    configprops:
+      enabled: true
+    env:
+      enabled: true
+    loggers:
+      enabled: true
+    heapdump:
+      enabled: true
+    threaddump:
+      enabled: true
+    metrics:
+      enabled: true
+    scheduledtasks:
+      enabled: true
+    mappings:
+      enabled: true
