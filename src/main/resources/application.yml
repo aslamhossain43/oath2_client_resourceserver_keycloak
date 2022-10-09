@@ -33,3 +33,9 @@ keycloakclient:
 logging:
   level:
     org.springframework.web: DEBUG
+
+#Actuator
+management:
+  endpoint:
+    health:
+      show-details: when_authorized
